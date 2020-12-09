@@ -1,0 +1,87 @@
+double x, xf, xs, A, B, C ;
+Console.WriteLine("Введите коэффициент при х^4!");
+string a = Console.ReadLine();
+double.TryParse(a, out A);
+while (A==0)
+{
+Console.WriteLine("ты втираешь дичь,введи число!");
+a = Console.ReadLine();
+double.TryParse(a, out A);
+}
+Console.WriteLine("Введите коэффициент при х^2!");
+var b = Console.ReadLine();
+double.TryParse(b, out B);
+while (B == 0)
+{
+Console.WriteLine("ты втираешь дичь,введи число!");
+b = Console.ReadLine();
+double.TryParse(b, out B);
+}
+Console.WriteLine("Введите свободный член!");
+var c = Console.ReadLine();
+double.TryParse(c, out C);
+while (C == 0)
+{
+Console.WriteLine("ты втираешь дичь,введи число!");
+c = Console.ReadLine();
+double.TryParse(c, out C);
+}
+double D = (B*B-4*A*C);
+if (D<0)
+{
+Console.ForegroundColor = ConsoleColor.Red;
+Console.WriteLine("нет корней");
+Console.ResetColor();
+Environment.Exit(0);
+}
+if (D == 0)
+{
+x = -B / (2 * A);
+if (x>0)
+{
+Console.ForegroundColor = ConsoleColor.Green;
+Console.WriteLine($"Корень уравнения: х = " + Math.Sqrt(x));
+Console.ResetColor();
+Environment.Exit(0);
+}
+else
+{
+Console.ForegroundColor = ConsoleColor.Red;
+Console.WriteLine("Миша все фигня,давай по новой ,нет корней");
+Environment.Exit(0);
+Console.ResetColor();
+}
+}
+if (D > 0)
+{
+xf = (-B + Math.Sqrt(D))/2;
+if (xf > 0)
+{
+Console.ForegroundColor = ConsoleColor.Green;
+Console.WriteLine($"First Корень уравнения: х1 = " + Math.Sqrt(xf) + " второй корень уравнения: х2=" + -Math.Sqrt(xf));
+Console.ResetColor();
+}
+else
+{
+Console.ForegroundColor = ConsoleColor.Red;
+Console.WriteLine("Миша, все фигня,давай по новой ,нет корней");
+Console.ResetColor();
+Environment.Exit(0);
+
+}
+xs = (-B - Math.Sqrt(D)) / 2;
+if (xs > 0)
+{
+Console.ForegroundColor = ConsoleColor.Green;
+Console.WriteLine($" третий Корень уравнения: х3 = " + Math.Sqrt(xs) + " четвертый корень уравнения х4=" + -Math.Sqrt(xs));
+Console.ResetColor();
+Environment.Exit(0);
+}
+else
+{
+Console.ForegroundColor = ConsoleColor.Red;
+Console.WriteLine("Миша, все фигня,давай по новой ,нет корней");
+Console.ResetColor();
+Environment.Exit(0);
+}
+}
